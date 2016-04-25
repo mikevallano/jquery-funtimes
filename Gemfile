@@ -25,6 +25,8 @@ gem 'coveralls', require: false
 gem 'rack-mini-profiler'
 gem 'stamp'
 
+gem 'web-console', group: :development
+
 group :development, :test do
   gem 'pry'
   gem 'ffaker'
@@ -37,7 +39,6 @@ group :development, :test do
   gem 'guard-rspec', require: false
   gem 'terminal-notifier-guard'
   gem 'spring-commands-rspec'
-  gem 'web-console', '~> 2.0'
   gem 'spring'
 end
 
