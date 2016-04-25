@@ -7,7 +7,12 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
 
+  extend FriendlyId
+  friendly_id :username, :use => :history
 
+  def should_generate_new_friendly_id?
+    username_changed?
+  end
 
   def default_username
     if self.username == ""
