@@ -1,11 +1,9 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a work in progress, but the goal is to create a template app that is set up with Devise (with confirmable), friendly_id gem with a slug for username, and everything needed for the RSpec test suite, including initial user model spec and user feature spec.
 
-Things you may want to cover:
-
-* Ruby version
+ruby '2.3.0'
+rails '4.2.6'
 
 * System dependencies
 
@@ -17,7 +15,6 @@ Things you may want to cover:
 
 * How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
 
 * Deployment instructions
 
