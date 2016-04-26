@@ -14,7 +14,7 @@ require "shoulda/matchers"
 require 'support/controller_helpers'
 require 'support/feature_helpers'
 require 'support/mailer_helpers'
-# require 'capybara/email/rspec'
+require 'capybara/email/rspec'
 
 ActiveRecord::Migration.maintain_test_schema!
 
