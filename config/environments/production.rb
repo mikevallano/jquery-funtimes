@@ -74,8 +74,8 @@ Rails.application.configure do
     password: ENV['SENDGRID_PASSWORD']
   }
 
-  # config.action_mailer.default_url_options = { :host => 'https://i-learned-that.herokuapp.com/' }
-  config.action_mailer.default_url_options = { :host => 'smtp.sendgrid.net'}
+  config.action_mailer.default_url_options = { :host => 'i-learned-that.herokuapp.com' }
+  # config.action_mailer.default_url_options = { :host => 'smtp.sendgrid.net'}
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
