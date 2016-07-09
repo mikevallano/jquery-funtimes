@@ -6,7 +6,8 @@ Rails.application.routes.draw do
   resources :users, only: [:show], as: :user
 
   root 'pages#home'
-  get 'pages/about'
+  get 'about', to: 'pages#about', as: :about
+  get 'styles', to: 'pages#styles', as: :styles
   get 'pages/awaiting_confirmation', as: :awaiting_confirmation
 
 end
