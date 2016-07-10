@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/mikevallano/Desktop/rails-production/today-i-learned/app/controllers/pages_controller.rb": [
+      "/Users/mikevallano/Desktop/learning-practice/setup-template/app/controllers/pages_controller.rb": [
         1,
         1,
         null,
@@ -13,7 +13,7 @@
         null,
         null
       ],
-      "/Users/mikevallano/Desktop/rails-production/today-i-learned/app/controllers/application_controller.rb": [
+      "/Users/mikevallano/Desktop/learning-practice/setup-template/app/controllers/application_controller.rb": [
         1,
         null,
         null,
@@ -27,7 +27,22 @@
         null,
         null
       ],
-      "/Users/mikevallano/Desktop/rails-production/today-i-learned/app/controllers/registrations_controller.rb": [
+      "/Users/mikevallano/Desktop/learning-practice/setup-template/app/controllers/users_controller.rb": [
+        1,
+        null,
+        1,
+        2,
+        2,
+        0,
+        null,
+        2,
+        0,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/Users/mikevallano/Desktop/learning-practice/setup-template/app/controllers/registrations_controller.rb": [
         1,
         1,
         1,
@@ -177,34 +192,19 @@
         null,
         null
       ],
-      "/Users/mikevallano/Desktop/rails-production/today-i-learned/app/controllers/users_controller.rb": [
-        1,
-        null,
-        1,
-        2,
-        2,
-        0,
-        null,
-        2,
-        0,
-        null,
-        null,
-        null,
-        null
-      ],
-      "/Users/mikevallano/Desktop/rails-production/today-i-learned/app/helpers/application_helper.rb": [
+      "/Users/mikevallano/Desktop/learning-practice/setup-template/app/helpers/application_helper.rb": [
         0,
         0
       ],
-      "/Users/mikevallano/Desktop/rails-production/today-i-learned/app/helpers/pages_helper.rb": [
+      "/Users/mikevallano/Desktop/learning-practice/setup-template/app/helpers/pages_helper.rb": [
         0,
         0
       ],
-      "/Users/mikevallano/Desktop/rails-production/today-i-learned/app/helpers/users_helper.rb": [
+      "/Users/mikevallano/Desktop/learning-practice/setup-template/app/helpers/users_helper.rb": [
         0,
         0
       ],
-      "/Users/mikevallano/Desktop/rails-production/today-i-learned/app/models/user.rb": [
+      "/Users/mikevallano/Desktop/learning-practice/setup-template/app/models/user.rb": [
         0,
         0,
         0,
@@ -225,6 +225,6 @@
         0
       ]
     },
-    "timestamp": 1461632017
+    "timestamp": 1468194268
   }
 }

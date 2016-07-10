@@ -7,7 +7,4 @@ class PagesController < ApplicationController
 
   def awaiting_confirmation
   end
-
-  def styles
-  end
 end
