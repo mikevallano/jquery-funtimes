@@ -1,26 +1,44 @@
-// Place all the styles related to the pages controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+
+body {
+  padding-bottom: 20px;
+}
+
+html {
+  background-color: purple;
+}
 
 h1 {
   background-color: pink;
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
 }
 
-.texter ul li {
-  display: inline;
+.container {
+  background-color: gray;
+  padding: 20px;
+  margin-bottom: 20px;
+  border: 1px solid blue;
+}
+
+.orange {
+  width: 100%;
+  background-color: orange;
 }
 
 .yellow {
-  width: 75%;
+  width: 66%;
   background-color: yellow;
 }
 
 .yellow h1 {
   width: 50%;
   background-color: red;
-  border: 1px solid blue;
   padding: 0 35px 0 35px;
   margin: 10px 0 10px 0;
+  overflow: hidden;
+  font-size: 2vw;
+  text-align: left;
 }
 
 .red {
@@ -34,6 +52,53 @@ h1 {
   background-color: red;
 }
 
+.texter {
+  margin: 20px 0px;
+  text-align: center;
+}
+
+.texter ul li {
+  display: inline;
+  background-color: orange;
+}
+
+.texter li:last-child {
+  background-color: yellow;
+}
+
+.bg-image {
+  // background:  url(assets/images/migrating.png); standard CSS format
+  background-image: image-url("migrating.png"); //rails format
+  color: white;
+  padding: 10px;
+  margin: 10px;
+  p {
+    position: relative;
+    top: 40%;
+  }
+}
+
+.circular {
+  background-color: green;
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  position: relative;
+  margin: 10px auto;
+  p {
+    position: absolute;
+    top: 40%;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 2em;
+  }
+}
+
+.photos {
+  text-align: center;
+}
+
 .photos ul li {
   display: inline;
   padding: 0;
@@ -42,6 +107,4 @@ h1 {
 .photos img {
   max-height: 120px;
   max-width: 200px;
-  // height: 120px;
-  // width: 200px;
 }
