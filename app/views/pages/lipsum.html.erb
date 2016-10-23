@@ -2,12 +2,26 @@
 <h2>H2 Stuff</h2>
 
 <div class="lipsum-main container">
-  <h3>H3 Stuff</h3>
-  <p>Paragraph</p>
-  <ul>
-    <li>LI</li>
-    <li>LI</li>
-    <li>LI</li>
-  </ul>
-  <p>Paragraph</p>
+  <div class="col-md-6">
+    <h3>H3 Stuff</h3>
+    <p>Paragraph</p>
+    <ul>
+      <li>LI</li>
+      <li>LI</li>
+      <li>LI</li>
+    </ul>
+  </div> <!-- end col-md-6 left column -->
+
+  <div class="col-md-6">
+    <%= link_to 'Show Heem', '#', class: 'btn btn-primary btn-xs', id: 'show-ipsum-p-btn' %>
+    <p class="hidden" id="lipsum-p-toggler">Paragraph</p>
+    <%= image_tag 'https://s-media-cache-ak0.pinimg.com/736x/4b/f7/17/4bf7175aa7702faa742401c80e13c69d.jpg', class: 'hidden', id: 'acekitty' %>
+
+    <br>
+    <%= link_to 'First there is a Mountain', '#', class: 'btn btn-primary', id: 'show-hide-mountain-btn' %>
+    <%= image_tag 'cat-mountain.jpg', id: 'mountain-img' %>
+
+  </div> <!-- end col-md-6 right column -->
+
+  <br style="clear:both;">
 </div>
