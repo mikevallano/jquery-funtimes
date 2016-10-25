@@ -1,5 +1,6 @@
 $(document).ready(function(){
-  $("#show-ipsum-p-btn").click(function() {
+  $("#show-ipsum-p-btn").click(function(event) {
+    event.preventDefault();
     $("#acekitty").toggleClass('hidden');
     if ($("#acekitty").hasClass('hidden')) {
       $("#show-ipsum-p-btn").text('Show Heem');
@@ -25,6 +26,25 @@ $(document).ready(function(){
       }, 5000);
     }
   });
-});
+
+  $('.list-uno li').click(function() {
+    $(this).addClass('featured');
+    $('.list-uno li').not(this).removeClass('featured');
+    $(this).next().addClass('nexter');
+    $('.list-uno li').not(this).next().removeClass('nexter');
+    $(this).prev().addClass('prever');
+    $('.list-uno li').not(this).prev().removeClass('prever');
+  });
+
+  $('.list-dos li').eq(1).addClass('featured');
+  $(".list-dos li:nth-child(2)").addClass('featured');
+
+  $('#inputter').on('change', function() {
+      var form_val;
+      form_val = $('#inputter').val();
+      $('h3').text(form_val);
+  });
+
+}); // end document ready
 
 

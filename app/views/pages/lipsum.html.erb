@@ -3,12 +3,29 @@
 
 <div class="lipsum-main container">
   <div class="col-md-6">
+
+    <%= form_tag("#", method: "get") do %>
+      <%= text_field_tag :q, nil, id: 'inputter' %>
+    <% end %>
+
     <h3>H3 Stuff</h3>
+
     <p>Paragraph</p>
-    <ul>
-      <li>LI</li>
-      <li>LI</li>
-      <li>LI</li>
+
+    <ul class="list-uno">
+      <li>Li Numero Uno</li>
+      <li>Li Numero Dos</li>
+      <li>Li Numero Tres</li>
+      <li>Li Numero Cuatro</li>
+      <li>Li Numero Cinco</li>
+    </ul>
+
+    <ul class="list-dos">
+      <li>Li Numero One</li>
+      <li>Li Numero Two</li>
+      <li>Li Numero Three</li>
+      <li>Li Numero Four</li>
+      <li>Li Numero Fiver</li>
     </ul>
   </div> <!-- end col-md-6 left column -->
 

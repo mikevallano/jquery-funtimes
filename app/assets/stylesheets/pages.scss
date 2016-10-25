@@ -17,3 +17,25 @@
   // display: block;
   margin: 10px;
 }
+
+.list-uno {
+  li {
+    border: 1px solid orange;
+    width: 50%;
+  }
+}
+
+.list-dos li {
+  width: 60%;
+  border: 1px solid grey;
+}
+
+.featured {
+  background: yellow;
+}
+.nexter {
+  background: blue;
+}
+.prever {
+  background: pink;
+}
