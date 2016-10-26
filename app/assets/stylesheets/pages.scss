@@ -1,5 +1,5 @@
-.hidden {
-  // display: none;
+#inputter {
+  width: 250px;
 }
 
 #acekitty {
@@ -14,20 +14,47 @@
 }
 
 #show-hide-mountain-btn {
-  // display: block;
   margin: 10px;
+}
+
+.buffer {
+  margin: 10px 0 10px 0;
+  font-weight: 500;
+}
+
+.right-half {
+  padding-top: 15px;
+}
+
+div.mountain-gat-holder {
+  form {
+    margin-top: 10px;
+  }
+  #mountain-cover {
+    position: relative;
+    top: -320px;
+    left: 45px;
+    font-size: 36px;
+    color: white;
+    font-weight: 600;
+  }
+}
+
+li {
+  padding: 0 0 5px 5px;
+  margin-left: -10px;
 }
 
 .list-uno {
   li {
-    border: 1px solid orange;
+    // border: 1px solid orange;
     width: 50%;
   }
 }
 
 .list-dos li {
   width: 60%;
-  border: 1px solid grey;
+  // border: 1px solid grey;
 }
 
 .featured {

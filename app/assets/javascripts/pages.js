@@ -10,7 +10,8 @@ $(document).ready(function(){
   });
 
   var mountain_click_count = 0
-  $('#show-hide-mountain-btn').click(function(){
+  $('#show-hide-mountain-btn').click(function(event){
+    event.preventDefault();
     mountain_click_count ++;
     console.log(mountain_click_count);
     $('#mountain-img').toggleClass('hidden');
@@ -39,11 +40,23 @@ $(document).ready(function(){
   $('.list-dos li').eq(1).addClass('featured');
   $(".list-dos li:nth-child(2)").addClass('featured');
 
-  $('#inputter').on('change', function() {
+
+  function makefeatured() {
+    $(this).addClass('featured');
+    $('.list-dos li').not(this).removeClass('featured');
+  }
+
+  $('.list-dos li').click(makefeatured);
+
+  $('#inputter').on('input', function() {
       var form_val;
       form_val = $('#inputter').val();
-      $('h3').text(form_val);
+      $('#mountain-cover').text(form_val);
   });
+
+  // $('p').click(function() {
+  //   $(this).closest('ul').children().removeClass('featured');
+  // })
 
 }); // end document ready
 
