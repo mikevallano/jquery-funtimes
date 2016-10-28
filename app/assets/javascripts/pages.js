@@ -54,6 +54,26 @@ $(document).ready(function(){
       $('#mountain-cover').text(form_val);
   });
 
+  function beeLeft() {
+      $(".mover").animate({left: "-=500"}, 2000, "swing", beeRight);
+  }
+  function beeRight() {
+      $(".mover").animate({left: "+=500"}, 2000, "swing", beeLeft);
+  }
+
+  beeRight();
+
+  var stop_start_click_count = 0
+  $('h2').click(function() {
+    stop_start_click_count ++;
+    console.log('click_count: ' + stop_start_click_count);
+  if (stop_start_click_count % 2 === 0) {
+     beeRight()
+    } else {
+    $('.mover').stop();
+    }
+  })
+
   // $('p').click(function() {
   //   $(this).closest('ul').children().removeClass('featured');
   // })
