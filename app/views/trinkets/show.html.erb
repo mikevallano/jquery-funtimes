@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @trinket.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @trinket.description %>
+</p>
+
+<%= link_to 'Edit', edit_trinket_path(@trinket) %> |
+<%= link_to 'Back', trinkets_path %>

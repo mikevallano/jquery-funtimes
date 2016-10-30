@@ -1,0 +1,2 @@
+module TrinketsHelper
+end

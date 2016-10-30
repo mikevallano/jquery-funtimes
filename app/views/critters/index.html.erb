@@ -2,29 +2,10 @@
 
 <h1>Listing Critters</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Collar</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @critters.each do |critter| %>
-      <tr>
-        <td><%= critter.name %></td>
-        <td><%= critter.description %></td>
-        <td><%= critter.collar %></td>
-        <td><%= link_to 'Show', critter %></td>
-        <td><%= link_to 'Edit', edit_critter_path(critter) %></td>
-        <td><%= link_to 'Destroy', critter, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<ul id="crit-list">
+  <!-- when the page loads, for each critter
+  append an <li> to this <ul> with critter info -->
+</ul>
 
 <br>
 
