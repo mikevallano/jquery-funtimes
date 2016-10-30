@@ -4,7 +4,9 @@ class CrittersController < ApplicationController
   # GET /critters
   # GET /critters.json
   def index
+    sleep 1 #simulate slow load
     @critters = Critter.all
+    @critter = Critter.new
   end
 
   # GET /critters/1
@@ -29,7 +31,8 @@ class CrittersController < ApplicationController
     respond_to do |format|
       if @critter.save
         format.html { redirect_to @critter, notice: 'Critter was successfully created.' }
-        format.json { render :show, status: :created, location: @critter }
+        # format.json { render :show, status: :created, location: @critter }
+        format.json { render json: @critter }
       else
         format.html { render :new }
         format.json { render json: @critter.errors, status: :unprocessable_entity }
