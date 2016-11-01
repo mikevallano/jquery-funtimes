@@ -25,8 +25,8 @@ ready = function () {
       dataType: "json",
       success: function(last_crit) {
         addCritToList(last_crit);
-        // this clears out the form fields after successful submission
         toggleCritForm();
+        // this clears out the form fields after successful submission
         $("#crit-form-holder form")[0].reset();
         // $('#critter_name').val('');
         // $('#critter_description').val('');
@@ -43,6 +43,7 @@ ready = function () {
       critter.description +
       ', collar: ' +
       critter.collar +
+      ' ' + critter.show +
       ' ' + critter.edit +
       ' ' + critter.destroy +
       '</li>');
@@ -55,6 +56,12 @@ ready = function () {
   function toggleCritForm() {
     $('#crit-form-holder').toggleClass('hidden');
     $('.new-crit-btn').toggleClass('hidden');
+  }
+
+  function editCritForm(critter) {
+    toggleCritForm();
+    $('#crit-form-holder form #critter_name').val('critter.name');
+    $('#crit-form-holder form #critter_description').val('critter.description');
   }
 
 } // end ready function

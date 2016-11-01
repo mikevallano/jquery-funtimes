@@ -31,8 +31,7 @@ class CrittersController < ApplicationController
     respond_to do |format|
       if @critter.save
         format.html { redirect_to @critter, notice: 'Critter was successfully created.' }
-        # format.json { render :show, status: :created, location: @critter }
-        format.json { render json: @critter }
+        format.json { render :show, status: :created, location: @critter }
       else
         format.html { render :new }
         format.json { render json: @critter.errors, status: :unprocessable_entity }
