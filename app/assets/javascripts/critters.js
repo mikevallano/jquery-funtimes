@@ -59,15 +59,16 @@ $(document).ready(function () {
 
   function editCritForm(critter) {
     toggleCritForm();
-    $('#crit-form-holder form #critter_name').val('critter.name');
-    $('#crit-form-holder form #critter_description').val('critter.description');
+    $('#crit-form-holder form #critter_name').val(critter.name);
+    $('#crit-form-holder form #critter_description').val(critter.description);
   }
 
 // syntax for adding event listeners on items added to the dom
   $(document).on('click', '.edit-crit-link', function() {
-    toggleCritForm();
-    var crit = $(this);
-    console.log(crit.parent().prop("id"));
+    var critId = $(this).parent().prop("id");
+    $.get('/critters/'+critId+'.json', function(critter) {
+      editCritForm(critter);
+    });
   });
 
   $(document).on('click', '.delete-crit-link', function() {
