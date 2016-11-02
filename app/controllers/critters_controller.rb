@@ -4,7 +4,6 @@ class CrittersController < ApplicationController
   # GET /critters
   # GET /critters.json
   def index
-    sleep 1 #simulate slow load
     @critters = Critter.all
     @critter = Critter.new
   end

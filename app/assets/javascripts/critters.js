@@ -1,5 +1,4 @@
-var ready; // ready function is a workaround for turbolinks
-ready = function () {
+$(document).ready(function () {
   $.get('/critters.json', function(critters) {
     $.each(critters, function(i, critter) {
       addCritToList(critter);
@@ -37,7 +36,7 @@ ready = function () {
 
   function addCritToList(critter) {
     $('#crit-list').append(
-      '<li>name: ' +
+      "<li id="+critter.id+">" + "name: " +
       critter.name +
       ', description: ' +
       critter.description +
@@ -64,7 +63,19 @@ ready = function () {
     $('#crit-form-holder form #critter_description').val('critter.description');
   }
 
-} // end ready function
+// syntax for adding event listeners on items added to the dom
+  $(document).on('click', '.edit-crit-link', function() {
+    toggleCritForm();
+    var crit = $(this);
+    console.log(crit.parent().prop("id"));
+  });
+
+  $(document).on('click', '.delete-crit-link', function() {
+    var li = $(this).parent();
+    li.hide();
+  });
+
+}); // end document ready
 
 
   // Alternate Syntax for ajax request:
@@ -74,6 +85,4 @@ ready = function () {
   //   success: function(critters) {
   //     $.each(critters, function(i, critter) {
 // <a id="sign_up_nav_link" href="/users/sign_up">Sign Up</a>
-$(document).ready(ready);
-$(document).on('page:load', ready);
 
