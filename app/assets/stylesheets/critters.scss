@@ -1,3 +1,11 @@
-// Place all the styles related to the critters controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+#crit-form-modal {
+  .field {
+    margin-bottom: 5px;
+  }
+  label {
+    margin-bottom: 1px;
+  }
+  #crit-form-submit-btn {
+    margin: 10px 0;
+  }
+}

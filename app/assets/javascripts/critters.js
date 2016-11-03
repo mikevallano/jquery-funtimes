@@ -6,7 +6,7 @@ $(document)
     });
   });
 
-  $(document).on('ajax:success', '#crit-form-holder form', function(e, crit) {
+  $(document).on('ajax:success', '#crit-form-modal form', function(e, crit) {
       if (crit.errors) {
         alert(crit.errors)
           // $(this).find('.text-danger').show().html('<strong>Please fix the following errors: </strong><br/>' + res.errors.join('<br/>'))
@@ -15,13 +15,13 @@ $(document)
           addCritToList(crit);
           toggleCritForm();
           // this clears out the form fields after successful submission
-          $("#crit-form-holder form")[0].reset();
+          $("#crit-form-modal form")[0].reset();
       // }
       }
   });
 
 
-  // $("#crit-form-holder form").submit(function(e) {
+  // $("#crit-form-modal form").submit(function(e) {
   //   // both of these lines are needed to prevent double form submitting
   //   e.preventDefault();
   //   e.stopImmediatePropagation();
@@ -42,7 +42,7 @@ $(document)
     //     addCritToList(last_crit);
     //     toggleCritForm();
     //     // this clears out the form fields after successful submission
-    //     $("#crit-form-holder form")[0].reset();
+    //     $("#crit-form-modal form")[0].reset();
     //     // $('#critter_name').val('');
     //     // $('#critter_description').val('');
     //   } //success
@@ -69,14 +69,13 @@ $(document)
   })
 
   function toggleCritForm() {
-    $('#crit-form-holder').toggleClass('hidden');
-    $('.new-crit-btn').toggleClass('hidden');
+    $('#crit-form-modal').modal('toggle');
   }
 
   function editCritForm(critter) {
     toggleCritForm();
-    $('#crit-form-holder form #critter_name').val(critter.name);
-    $('#crit-form-holder form #critter_description').val(critter.description);
+    $('#crit-form-modal form #critter_name').val(critter.name);
+    $('#crit-form-modal form #critter_description').val(critter.description);
   }
 
 // syntax for adding event listeners on items added to the dom
