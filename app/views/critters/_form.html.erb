@@ -1,16 +1,7 @@
 <div class="hidden", id="crit-form-holder">
-  <%= form_for @critter, remote: true, format: :json do |f| %>
-    <% if @critter.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(@critter.errors.count, "error") %> prohibited this critter from being saved:</h2>
 
-        <ul>
-        <% @critter.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-        </ul>
-      </div>
-    <% end %>
+  <%# url = @critter.new_record? ? critters_path(format: :json) : critter_path(@critter, format: :json) %>
+  <%= form_for @critter, remote: true, format: :json do |f| %>
 
     <div class="field">
       <%= f.label :name %><br>
@@ -25,7 +16,7 @@
       <%= f.check_box :collar %>
     </div>
     <div class="actions">
-      <%= f.submit "Add Critter", id: 'crit-form-submit-btn' %>
+      <%= f.submit (@critter.new_record? ? 'Create' : 'Update')+' Critter', class: 'btn btn-primary btn-success', id: 'crit-form-submit-btn' %>
     </div>
   <% end %>
 </div>
