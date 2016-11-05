@@ -5,7 +5,6 @@ class CrittersController < ApplicationController
   # GET /critters.json
   def index
     @critters = Critter.all
-    # @critter = Critter.new
   end
 
   # GET /critters/1

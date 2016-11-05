@@ -72,17 +72,25 @@ $(document)
     $('#crit-form-modal').modal('toggle');
   }
 
-  function editCritForm(critter) {
+  function editCritForm(critter, li) {
     toggleCritForm();
     $('#crit-form-modal form #critter_name').val(critter.name);
     $('#crit-form-modal form #critter_description').val(critter.description);
+    $('#crit-form-modal form').attr('action', critter.edit_url);
+    $('#crit-form-modal form').attr('method', 'patch');
+    $('#crit-form-modal form input').first().attr('method', 'put');
+    $('#crit-form-modal form input[type=submit]').attr('value', 'Update this Critter');
+    $("#crit-form-modal form").submit(function(e) {
+      li.hide();
+    })
   }
 
 // syntax for adding event listeners on items added to the dom
   $(document).on('click', '.edit-crit-link', function() {
-    var critId = $(this).parent().prop("id");
+    var li = $(this).parent();
+    var critId = li.prop("id");
     $.get('/critters/'+critId+'.json', function(critter) {
-      editCritForm(critter);
+      editCritForm(critter, li);
     });
   });
 
