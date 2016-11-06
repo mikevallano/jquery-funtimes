@@ -6,6 +6,24 @@ p#alert-msg {
   font-size: 14px;
 }
 
+h1#critter-header {
+  display: inline;
+}
+
+.new-crit-btn {
+  display: inline;
+  float: right;
+}
+
+#critter-table {
+  margin: 20px 0;
+  border: 1px solid grey;
+  th {
+    background: #b3b1b1;
+    border-bottom: 2px solid black;
+  }
+}
+
 // body {
 //   background-color: #fff;
 //   color: #333;

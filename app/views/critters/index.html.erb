@@ -1,14 +1,23 @@
 <p class="hidden" id="notice"><%= notice %></p>
 <p class="hidden" id="alert-msg"><%= alert %></p>
 
-<h1>Listing Critters</h1>
+<h1 id="critter-header">List of Critters</h1>
+<%= link_to 'New Critter', '#', class: 'btn btn-primary new-crit-btn' %>
 
-<ul id="crit-list">
-  <!-- when the page loads, for each critter
-  append an <li> to this <ul> with critter info -->
-</ul>
+<table class="table table-striped" id="critter-table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Collar</th>
+      <th colspan="3">Actions</th>
+    </tr>
+  </thead>
+
+  <tbody id="crit-table-body">
+    <!-- when the page loads, for each critter
+    append a row with the critter info -->
+  </tbody>
+</table>
 
 <%= render 'form' %>
-<br>
-
-<%= link_to 'New Critter', '#', class: 'btn btn-primary new-crit-btn' %>

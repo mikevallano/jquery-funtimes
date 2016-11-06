@@ -52,17 +52,14 @@ $(document)
   // }); //end form submit function
 
   function addCritToList(critter) {
-    $('#crit-list').append(
-      "<li id="+critter.id+">" + "name: " +
-      critter.name +
-      ', description: ' +
-      critter.description +
-      ', collar: ' +
-      critter.collar +
-      ' ' + critter.show +
-      ' ' + critter.edit +
-      ' ' + critter.destroy +
-      '</li>');
+    $('#crit-table-body').append(
+      "<tr id="+critter.id+"><td>"+critter.name+"</td>"+
+      "<td>"+critter.description+"</td>"+
+      "<td>"+critter.collar+"</td>"+
+      "<td>"+critter.show+"</td>"+
+      "<td>"+critter.edit+"</td>"+
+      "<td>"+critter.destroy+"</td>"+
+      '</tr>');
   } //end addCritToList
 
   $('.new-crit-btn').click(function() {
@@ -73,7 +70,7 @@ $(document)
     $('#crit-form-modal').modal('toggle');
   }
 
-  function editCritForm(critter, li) {
+  function editCritForm(critter, tr) {
     toggleCritForm();
     $('#crit-form-modal form #critter_name').val(critter.name);
     $('#crit-form-modal form #critter_description').val(critter.description);
@@ -82,22 +79,22 @@ $(document)
     $('#crit-form-modal form input').first().attr('method', 'put');
     $('#crit-form-modal form input[type=submit]').attr('value', 'Update this Critter');
     $("#crit-form-modal form").submit(function(e) {
-      li.hide();
+      tr.hide();
     })
   }
 
 // syntax for adding event listeners on items added to the dom
   $(document).on('click', '.edit-crit-link', function() {
-    var li = $(this).parent();
-    var critId = li.prop("id");
+    var tr = $(this).closest('tr');
+    var critId = tr.prop("id");
     $.get('/critters/'+critId+'.json', function(critter) {
-      editCritForm(critter, li);
+      editCritForm(critter, tr);
     });
   });
 
   $(document).on('click', '.delete-crit-link', function() {
-    var li = $(this).parent();
-    li.hide();
+    var tr = $(this).closest('tr');
+    tr.hide();
   });
 
 }); // end document ready
