@@ -4,6 +4,7 @@ class CrittersController < ApplicationController
   # GET /critters
   # GET /critters.json
   def index
+    sleep 1
     @critters = Critter.all
   end
 

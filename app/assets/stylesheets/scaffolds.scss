@@ -24,6 +24,23 @@ h1#critter-header {
   }
 }
 
+.overlay {
+  background-color: rgba(1, 1, 1, 0.7);
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 5;
+}
+
+.image-loader {
+  margin: 0 auto;
+  z-index: 5;
+  color: rgb(83, 171, 196);
+  text-align: center;
+}
+
 // body {
 //   background-color: #fff;
 //   color: #333;
