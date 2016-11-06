@@ -13,7 +13,7 @@ $(document)
       } else {
         addCritToList(crit);
         toggleCritForm();
-        $("#crit-form-modal form")[0].reset(); // this clears out the form fields after successful submission
+        $('#crit-form-modal form').replaceWith(formOriginal); // var set as a form clone. sets the form back to original state. needed for clearing out form contents and when edit modifies the destination of the form with jquery
       }
   });
 
@@ -49,18 +49,20 @@ $(document)
     $('#crit-form-modal form input').first().attr('method', 'put'); // change method to put
     $('#crit-form-modal form input[type=submit]').attr('value', 'Update this Critter'); // change to "update" instead of 'create'
     $("#crit-form-modal form").submit(function(e) {
-      tr.hide(); // after successful ajax call, the object will be appended to the table. hiding the former tr eliminates duplicates
+      tr.remove(); // after successful ajax call, the object will be appended to the table. remove is needed to remove the old version and avoid duplicates
     })
   }
 
   $(document).on('click', '.delete-crit-link', function() {
     var tr = $(this).closest('tr');
-    tr.hide();
+    tr.remove();
   });
 
   function toggleCritForm() {
     $('#crit-form-modal').modal('toggle');
   }
+
+  var formOriginal = $('#crit-form-modal form').clone();
 
 }); // end document ready
 
