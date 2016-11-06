@@ -32,7 +32,8 @@ class CrittersController < ApplicationController
         format.json { render :show, status: :created, location: @critter }
       else
         format.html { render :new }
-        format.json { render json: @critter.errors, status: :unprocessable_entity }
+        format.json { render json: {status: :unprocessable_entity, errors: @critter.errors.full_messages} }
+        # format.json { render json: @critter.errors, status: :unprocessable_entity }
       end
     end
   end

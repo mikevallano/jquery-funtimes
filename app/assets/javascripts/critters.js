@@ -8,7 +8,8 @@ $(document)
 
   $(document).on('ajax:success', '#crit-form-modal form', function(e, crit) {
       if (crit.errors) {
-        alert(crit.errors)
+        toggleCritForm();
+        $('#alert-msg').toggleClass('hidden').text("Error with the critter: " + crit.errors);
           // $(this).find('.text-danger').show().html('<strong>Please fix the following errors: </strong><br/>' + res.errors.join('<br/>'))
       } else {
         // function(last_crit) {
