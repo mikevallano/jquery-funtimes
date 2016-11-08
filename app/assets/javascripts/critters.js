@@ -42,12 +42,13 @@ $(document)
 
   function editCritForm(critter, tr) {
     toggleCritForm();
+    $('.modal-header h2').text('Editing ' + critter.name);
     $('#crit-form-modal form #critter_name').val(critter.name);
     $('#crit-form-modal form #critter_description').val(critter.description);
     $('#crit-form-modal form').attr('action', critter.edit_url); // send to #edit instead of #create action
     $('#crit-form-modal form').attr('method', 'patch'); // change method to patch
     $('#crit-form-modal form input').first().attr('method', 'put'); // change method to put
-    $('#crit-form-modal form input[type=submit]').attr('value', 'Update this Critter'); // change to "update" instead of 'create'
+    $('#crit-form-submit-btn').attr('value', 'Update Critter'); // change to "update" instead of 'create'
     $("#crit-form-modal form").submit(function(e) {
       tr.remove(); // after successful ajax call, the object will be appended to the table. remove is needed to remove the old version and avoid duplicates
     })
@@ -57,6 +58,12 @@ $(document)
     var tr = $(this).closest('tr');
     tr.remove();
   });
+
+  $("#crit-form-modal").on('hidden.bs.modal', function () {
+    $("#crit-form-modal form")[0].reset(); //alternative way of resetting form. this works while the clone method does not in this case.
+    $('#crit-form-submit-btn').attr('value', 'Create Critter');
+    $('.modal-header h2').text("Create New Critter!");
+  })
 
   function toggleCritForm() {
     $('#crit-form-modal').modal('toggle');

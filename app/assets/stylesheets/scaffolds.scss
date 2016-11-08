@@ -10,6 +10,50 @@ h1#critter-header {
   display: inline;
 }
 
+#crit-form-modal {
+  .modal-header {
+    border-bottom: none;
+    h2 {
+      display: inline;
+      color: #292f2f;
+    }
+  }
+  .modal-content {
+    min-height: 310px;
+    width: 500px;
+    margin: 0 auto;
+    background-image: url(asset_path('cat-mountain.jpg'));
+    .modal-body {
+      min-height: 160px;
+      overflow-y: scroll;
+      border: none;
+      .form-field-holder {
+        margin-top: 35px;
+        width: 40%;
+        float: right;
+        .field {
+          margin-bottom: 10px;
+        }
+      }
+      input[type=text] {
+        color: #1c353c;
+        font-size: 16px;
+        font-weight: 500;
+        background: #d7ddd3;
+      }
+      .collar-checkbox {
+        label {
+          font-size: 14px;
+          color: white;
+        }
+      }
+    }
+  } //end modal body
+  .modal-footer {
+    border: none;
+  }
+}
+
 .new-crit-btn {
   display: inline;
   float: right;

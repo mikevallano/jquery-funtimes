@@ -4,30 +4,29 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
+        <h2>Create New Critter!</h2>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
       </div>
         <div class="modal-body">
           <%= form_for @critter||Critter.new, remote: true, format: :json do |f| %>
-
+          <div class="form-field-holder">
             <div class="field">
-              <%= f.label :name %><br>
-              <%= f.text_field :name, class: 'form-control' %>
-            </div>
-            <div class="field">
-              <%= f.label :description %><br>
-              <%= f.text_field :description, class: 'form-control' %>
+              <%= f.text_field :name, placeholder: "Critter Name", class: 'form-control' %>
             </div>
             <div class="field">
-              <%= f.label :collar %>
-              <%= f.check_box :collar %>
+              <%= f.text_field :description, placeholder: "Description", class: 'form-control' %>
             </div>
-            <div class="actions">
-              <%= f.submit ("Create Critter"), class: 'btn btn-primary btn-success', id: 'crit-form-submit-btn' %>
+            <div class="field collar-checkbox">
+              <%#= f.label :collar, "Collar?" %>
+              <%#= f.check_box :collar %>
             </div>
-          <% end %>
+          </div>
+          <br style="clear:both;">
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default modal-close-btn" data-dismiss="modal">Cancel</button>
+          <%= f.submit ("Create Critter"), class: 'btn btn-primary btn-success', id: 'crit-form-submit-btn' %>
+          <% end %>
         </div>
     </div>
   </div>
