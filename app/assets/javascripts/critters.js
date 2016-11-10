@@ -18,14 +18,19 @@ $(document)
   });
 
   function addCritToList(critter) {
-    $('#crit-table-body').append(
-      "<tr id="+critter.id+"><td>"+critter.name+"</td>"+
+    var existingCrit = $('#crit-table-body tr#'+critter.id);
+    var critToAdd = "<tr id="+critter.id+"><td>"+critter.name+"</td>"+
       "<td>"+critter.description+"</td>"+
       "<td>"+critter.collar+"</td>"+
       "<td>"+critter.show+"</td>"+
       "<td>"+critter.edit+"</td>"+
       "<td>"+critter.destroy+"</td>"+
-      '</tr>');
+      '</tr>';
+    if (existingCrit.length) {
+      existingCrit.replaceWith(critToAdd);
+    } else {
+      $('#crit-table-body').append(critToAdd);
+    }
   } //end addCritToList
 
   $('.new-crit-btn').click(function() {
@@ -50,7 +55,7 @@ $(document)
     $('#crit-form-modal form input').first().attr('method', 'put'); // change method to put
     $('#crit-form-submit-btn').attr('value', 'Update Critter'); // change to "update" instead of 'create'
     $("#crit-form-modal form").submit(function(e) {
-      tr.remove(); // after successful ajax call, the object will be appended to the table. remove is needed to remove the old version and avoid duplicates
+      // tr.remove(); // after successful ajax call, the object will be appended to the table. remove is needed to remove the old version and avoid duplicates
     })
   }
 
