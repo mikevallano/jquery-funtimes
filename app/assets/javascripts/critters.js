@@ -13,7 +13,8 @@ $(document)
       } else {
         addCritToList(crit);
         toggleCritForm();
-        $('#crit-form-modal form').replaceWith(formOriginal); // var set as a form clone. sets the form back to original state. needed for clearing out form contents and when edit modifies the destination of the form with jquery
+        $("#crit-form-modal form")[0].reset();
+        // $('#crit-form-modal form').replaceWith(formOriginal); // var set as a form clone. sets the form back to original state. needed for clearing out form contents and when edit modifies the destination of the form with jquery
       }
   });
 
@@ -73,6 +74,21 @@ $(document)
   function toggleCritForm() {
     $('#crit-form-modal').modal('toggle');
   }
+
+  $('th').click(function(){
+      var table = $(this).parents('table').eq(0)
+      var rows = table.find('tr:gt(0)').toArray().sort(comparer($(this).index()))
+      this.asc = !this.asc
+      if (!this.asc){rows = rows.reverse()}
+      for (var i = 0; i < rows.length; i++){table.append(rows[i])}
+  })
+  function comparer(index) {
+      return function(a, b) {
+          var valA = getCellValue(a, index), valB = getCellValue(b, index)
+          return $.isNumeric(valA) && $.isNumeric(valB) ? valA - valB : valA.localeCompare(valB)
+      }
+  }
+  function getCellValue(row, index){ return $(row).children('td').eq(index).html() }
 
   var formOriginal = $('#crit-form-modal form').clone();
 
