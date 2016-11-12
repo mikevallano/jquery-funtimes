@@ -13,8 +13,7 @@ $(document)
       } else {
         addCritToList(crit);
         toggleCritForm();
-        $("#crit-form-modal form")[0].reset();
-        // $('#crit-form-modal form').replaceWith(formOriginal); // var set as a form clone. sets the form back to original state. needed for clearing out form contents and when edit modifies the destination of the form with jquery
+        resetForm();
       }
   });
 
@@ -27,16 +26,12 @@ $(document)
       "<td>"+critter.edit+"</td>"+
       "<td>"+critter.destroy+"</td>"+
       '</tr>';
-    if (existingCrit.length) {
+    if (existingCrit.length) { // if editing an existing crit, replace the tr
       existingCrit.replaceWith(critToAdd);
     } else {
       $('#crit-table-body').append(critToAdd);
     }
   } //end addCritToList
-
-  $('.new-crit-btn').click(function() {
-    toggleCritForm(); //show/hide form
-  })
 
   $(document).on('click', '.edit-crit-link', function() { // syntax for adding event listeners on items added to the dom
     var tr = $(this).closest('tr');
@@ -55,9 +50,6 @@ $(document)
     $('#crit-form-modal form').attr('method', 'patch'); // change method to patch
     $('#crit-form-modal form input').first().attr('method', 'put'); // change method to put
     $('#crit-form-submit-btn').attr('value', 'Update Critter'); // change to "update" instead of 'create'
-    $("#crit-form-modal form").submit(function(e) {
-      // tr.remove(); // after successful ajax call, the object will be appended to the table. remove is needed to remove the old version and avoid duplicates
-    })
   }
 
   $(document).on('click', '.delete-crit-link', function() {
@@ -65,32 +57,27 @@ $(document)
     tr.remove();
   });
 
-  $("#crit-form-modal").on('hidden.bs.modal', function () {
-    $("#crit-form-modal form")[0].reset(); //alternative way of resetting form. this works while the clone method does not in this case.
-    $('#crit-form-submit-btn').attr('value', 'Create Critter');
+  function resetForm () {
+    $("#crit-form-modal form")[0].reset(); //resets form fields
     $('.modal-header h2').text("Create New Critter!");
-  })
+    $('#crit-form-submit-btn').attr('value', 'Create Critter');
+    $('#crit-form-modal form').attr('action', '/critters.json');
+    $('#crit-form-modal form').attr('method', 'post');
+    $('#crit-form-modal form input').first().attr('method', 'post');
+  }
 
   function toggleCritForm() {
     $('#crit-form-modal').modal('toggle');
   }
 
-  $('th').click(function(){
-      var table = $(this).parents('table').eq(0)
-      var rows = table.find('tr:gt(0)').toArray().sort(comparer($(this).index()))
-      this.asc = !this.asc
-      if (!this.asc){rows = rows.reverse()}
-      for (var i = 0; i < rows.length; i++){table.append(rows[i])}
-  })
-  function comparer(index) {
-      return function(a, b) {
-          var valA = getCellValue(a, index), valB = getCellValue(b, index)
-          return $.isNumeric(valA) && $.isNumeric(valB) ? valA - valB : valA.localeCompare(valB)
-      }
-  }
-  function getCellValue(row, index){ return $(row).children('td').eq(index).html() }
+  $(document).on('click', '.new-crit-btn', function() {
+    toggleCritForm()
+    resetForm();
+  });
 
-  var formOriginal = $('#crit-form-modal form').clone();
+  $("#crit-form-modal").on('hidden.bs.modal', function () {
+    resetForm();
+  })
 
 }); // end document ready
 
