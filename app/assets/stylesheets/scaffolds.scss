@@ -85,6 +85,18 @@ h1#critter-header {
   text-align: center;
 }
 
+.paver-holder {
+  background: orange;
+  padding: 15px;
+  margin-top: 10px;
+  border-radius: 5px;
+  .inner-paver {
+    padding: 15px;
+    background: yellow;
+    border-radius: 5px;
+  }
+}
+
 // body {
 //   background-color: #fff;
 //   color: #333;

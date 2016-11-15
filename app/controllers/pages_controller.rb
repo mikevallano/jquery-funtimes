@@ -8,6 +8,9 @@ class PagesController < ApplicationController
   def lipsum
   end
 
+  def paver
+  end
+
   def awaiting_confirmation
   end
 end
