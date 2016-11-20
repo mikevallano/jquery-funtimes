@@ -21,7 +21,6 @@ $(document)
     var existingCrit = $('#crit-table-body tr#'+critter.id);
     var critToAdd = "<tr id="+critter.id+"><td>"+critter.name+"</td>"+
       "<td>"+critter.description+"</td>"+
-      "<td>"+critter.collar+"</td>"+
       "<td>"+critter.show+"</td>"+
       "<td>"+critter.edit+"</td>"+
       "<td>"+critter.destroy+"</td>"+
