@@ -70,6 +70,6 @@ class CrittersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def critter_params
-      params.require(:critter).permit(:name, :description, :collar)
+      params.require(:critter).permit(:name, :description)
     end
 end
