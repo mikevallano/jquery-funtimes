@@ -1,0 +1,4 @@
+var dogRow = $(".dog-table-container table tr#<%= @dog.id %>");
+$('#dog-form-modal').modal('toggle');
+resetDogForm();
+dogRow.replaceWith("<%= j(render partial: 'dogs/dog_row', locals: {:dog => @dog}) %>");

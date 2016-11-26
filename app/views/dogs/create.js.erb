@@ -1,0 +1,4 @@
+var dogTable = $(".dog-table-container table");
+$('#dog-form-modal').modal('toggle');
+resetDogForm();
+dogTable.append("<%= j(render partial: 'dogs/dog_row', locals: {:dog => @dog}) %>");

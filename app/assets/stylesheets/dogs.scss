@@ -1,0 +1,39 @@
+#dog-header {
+  display: inline;
+}
+#new-dog-btn {
+  display: inline;
+  float: right;
+}
+
+#dog-form-modal {
+  h2 {
+    width: 95%;
+    display: inline;
+    color: #b9b3b2;
+  }
+  .form-control {
+    width: 47%;
+    background: #b9b6b4;
+    margin-bottom: 10px;
+    color: #5e0001;
+  }
+  .modal-content {
+    background-image: url(asset_path('beach-doog.png'));
+  }
+  .modal-header, .modal-body, .modal-footer {
+    border: none;
+  }
+  ::-webkit-input-placeholder {
+     color: #5e0001;
+  }
+  :-moz-placeholder { /* Firefox 18- */
+     color: #5e0001;
+  }
+  ::-moz-placeholder {  /* Firefox 19+ */
+     color: #5e0001;
+  }
+  :-ms-input-placeholder {
+     color: #5e0001;
+  }
+}

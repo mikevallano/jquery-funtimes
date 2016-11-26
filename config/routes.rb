@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+  resources :dogs
   resources :trinkets
   resources :critters
   devise_for :users, :controllers => {:registrations => "registrations"}

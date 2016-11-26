@@ -1,0 +1,9 @@
+$('#dog-form-modal').modal('toggle');
+$('#dog-form-modal h2').text("Editing <%= @dog.name %>!");
+$('form.new_dog #dog_name').val("<%= @dog.name %>");
+$('form.new_dog #dog_description').val("<%= @dog.description %>");
+$('form.new_dog').attr('action', ("<%= dog_url(@dog.id) %>"));
+$('form.new_dog').attr('method', 'patch'); // change method to patch
+$('form.new_dog input').first().attr('method', 'put'); // change method to put
+$('#submit-dog-btn').attr('value', 'Update Dog'); // change to "update" instead of 'create'
+
