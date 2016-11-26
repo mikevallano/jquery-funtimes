@@ -1,0 +1,7 @@
+<tr id="<%= dog.id %>">
+  <td><%= dog.name %></td>
+  <td><%= dog.description %></td>
+  <td><%= link_to 'Show', dog %></td>
+  <td><%= link_to 'Edit', edit_dog_path(dog), remote: true %></td>
+  <td><%= link_to 'Destroy', dog, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+</tr>

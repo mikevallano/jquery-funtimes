@@ -1,0 +1,5 @@
+var dogTable = $(".dog-table-container table");
+$('.form-container').addClass('hide');
+$('#new-dog-btn').removeClass('hide');
+resetDogForm();
+dogTable.append("<%= j(render partial: 'dogs/dog_row', locals: {:dog => @dog}) %>");
