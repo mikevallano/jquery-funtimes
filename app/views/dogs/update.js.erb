@@ -1,5 +1,4 @@
 var dogRow = $(".dog-table-container table tr#<%= @dog.id %>");
-$('.form-container').addClass('hide');
-$('#new-dog-btn').removeClass('hide');
+$('#dog-form-modal').modal('toggle');
 resetDogForm();
 dogRow.replaceWith("<%= j(render partial: 'dogs/dog_row', locals: {:dog => @dog}) %>");

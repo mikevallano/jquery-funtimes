@@ -1,5 +1,5 @@
-$('.form-container').removeClass('hide');
-$('#new-dog-btn').addClass('hide');
+$('#dog-form-modal').modal('toggle');
+$('#dog-form-modal h2').text("Editing <%= @dog.name %>!");
 $('form.new_dog #dog_name').val("<%= @dog.name %>");
 $('form.new_dog #dog_description').val("<%= @dog.description %>");
 $('form.new_dog').attr('action', ("<%= dog_url(@dog.id) %>"));
