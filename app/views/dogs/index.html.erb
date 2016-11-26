@@ -1,6 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Dogs</h1>
+<h1 id="dog-header">Listing Dogs</h1>
+
+<%= link_to 'New Dog', new_dog_path, remote: true, class: 'btn btn-primary', id: 'new-dog-btn' %>
 
 <div class="dog-table-container">
   <table class="table table-striped">
@@ -23,5 +25,3 @@
 <br>
 
 <%= render 'form' %>
-
-<%= link_to 'New Dog', new_dog_path, remote: true, class: 'btn btn-default', id: 'new-dog-btn' %>
