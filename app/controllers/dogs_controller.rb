@@ -29,12 +29,14 @@ class DogsController < ApplicationController
 
     respond_to do |format|
       if @dog.save
-        format.html { redirect_to @dog, notice: 'Dog was successfully created.' }
+        format.html { redirect_to @dog}
         format.json { render :show, status: :created, location: @dog }
         format.js
       else
+        flash.now[:alert] = "Error creating dog: #{@dog.errors.full_messages.join(', ')}"
         format.html { render :new }
         format.json { render json: @dog.errors, status: :unprocessable_entity }
+        format.js
       end
     end
   end
@@ -48,8 +50,10 @@ class DogsController < ApplicationController
         format.json { render :show, status: :ok, location: @dog }
         format.js
       else
+        flash.now[:alert] = "Error updating dog: #{@dog.errors.full_messages.join(', ')}"
         format.html { render :edit }
         format.json { render json: @dog.errors, status: :unprocessable_entity }
+        format.js
       end
     end
   end
@@ -59,8 +63,10 @@ class DogsController < ApplicationController
   def destroy
     @dog.destroy
     respond_to do |format|
-      format.html { redirect_to dogs_url, notice: 'Dog was successfully destroyed.' }
+      flash.now[:notice] = "Dog successfully destroyed."
+      format.html { redirect_to dogs_url}
       format.json { head :no_content }
+      format.js
     end
   end
 

@@ -1,0 +1,5 @@
+$("tr#<%= @dog.id %>").remove();
+<% if notice %>
+  $('.notice-msg').removeClass('hidden');
+  $('.notice-msg').text('<%= notice %>');
+<% end %>

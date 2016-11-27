@@ -1,4 +1,8 @@
 var dogTable = $(".dog-table-container table");
 $('#dog-form-modal').modal('toggle');
 resetDogForm();
-dogTable.append("<%= j(render partial: 'dogs/dog_row', locals: {:dog => @dog}) %>");
+<% if alert %>
+  $('.alert-msg').removeClass('hidden').text("<%= raw alert %>"); //raw needed to escape characters such as apostrophes
+<% else %>
+  dogTable.append("<%= j(render partial: 'dogs/dog_row', locals: {:dog => @dog}) %>");
+<% end %>

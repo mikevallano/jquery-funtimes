@@ -1,4 +1,8 @@
 var dogRow = $(".dog-table-container table tr#<%= @dog.id %>");
 $('#dog-form-modal').modal('toggle');
 resetDogForm();
-dogRow.replaceWith("<%= j(render partial: 'dogs/dog_row', locals: {:dog => @dog}) %>");
+<% if alert %>
+  $('.alert-msg').removeClass('hidden').text("<%= raw alert %>"); //raw needed to escape characters such as apostrophes
+<% else %>
+  dogRow.replaceWith("<%= j(render partial: 'dogs/dog_row', locals: {:dog => @dog}) %>");
+<% end %>
