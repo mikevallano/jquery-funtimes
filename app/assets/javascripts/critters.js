@@ -1,10 +1,11 @@
-$(document)
-.ready(function () {
-  $.get('/critters.json', function(critters) {
-    $.each(critters, function(i, critter) {
-      addCritToList(critter);
+$(document).ready(function () {
+  if (window.location.pathname == '/critters') {
+    $.get('/critters.json', function(critters) {
+      $.each(critters, function(i, critter) {
+        addCritToList(critter);
+      });
     });
-  });
+  }
 
   $(document).on('ajax:success', '#crit-form-modal form', function(e, crit) { //the second argument defines which element triggered the ajax:success. differentiates between form submission and delete or other ajax call.
       if (crit.errors) {
