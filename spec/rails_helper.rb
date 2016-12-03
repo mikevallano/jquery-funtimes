@@ -33,6 +33,7 @@ RSpec.configure do |config|
   config.include ControllerHelpers, type: :controller
   config.include FeatureHelpers, type: :feature
   config.include MailerHelpers
+  config.include FactoryGirl::Syntax::Methods
   # config.include WaitForAjax, type: :feature
   config.before(:each) { reset_mailer }
 
