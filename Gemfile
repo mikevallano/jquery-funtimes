@@ -26,6 +26,7 @@ gem 'will_paginate'
 gem 'coveralls', require: false
 gem 'rack-mini-profiler'
 gem 'stamp'
+gem 'nested_scaffold'
 
 gem 'web-console', group: :development
 

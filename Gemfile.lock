@@ -152,6 +152,7 @@ GEM
     minitest (5.8.4)
     multi_json (1.11.3)
     nenv (0.3.0)
+    nested_scaffold (1.0.0)
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
     notiffany (0.0.8)
@@ -317,6 +318,7 @@ DEPENDENCIES
   jquery-ui-rails
   launchy
   letter_opener
+  nested_scaffold
   pg (~> 0.15)
   pry
   puma
