@@ -55,22 +55,25 @@ $(document).ready(function(){
   });
 
   function beeLeft() {
-      $(".mover").animate({left: "-=500"}, 2000, "swing", beeRight);
+    $(".mover").animate({left: "-=200"}, 2000);
   }
   function beeRight() {
-      $(".mover").animate({left: "+=500"}, 2000, "swing", beeLeft);
+    $(".mover").animate({left: "+=200"}, 2000);
   }
 
-  beeRight();
+  // beeRight();
 
   var stop_start_click_count = 0
-  $('h2').click(function() {
+  $('#kit_mover').click(function() {
     stop_start_click_count ++;
+    if($('.mover').is(':animated')) {
+      $('.mover').stop();
+    }
     console.log('click_count: ' + stop_start_click_count);
   if (stop_start_click_count % 2 === 0) {
-     beeRight()
+      beeLeft()
     } else {
-    $('.mover').stop();
+      beeRight()
     }
   })
 
