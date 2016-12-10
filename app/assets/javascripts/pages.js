@@ -77,9 +77,15 @@ $(document).ready(function(){
     }
   })
 
-  // $('p').click(function() {
-  //   $(this).closest('ul').children().removeClass('featured');
-  // })
+  $('.rando').click(function(){
+    h = randomInt(200, 500);
+    w = randomInt(200, 500);
+    $('img.rando').attr("src", "https://placekitten.com/"+w+'/'+h);
+  })
+
+  function randomInt(min,max) {
+    return Math.floor(Math.random()*(max-min+1)+min);
+  }
 
 }); // end document ready
 
