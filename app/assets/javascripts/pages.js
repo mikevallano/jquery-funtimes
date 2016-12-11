@@ -77,10 +77,12 @@ $(document).ready(function(){
     }
   })
 
-  $('.rando').click(function(){
+  $('.rando').click(function(e){
+    $('img.rando').removeClass('hidden');
     h = randomInt(200, 500);
     w = randomInt(200, 500);
     $('img.rando').attr("src", "https://placekitten.com/"+w+'/'+h);
+    e.preventDefault();
   })
 
   function randomInt(min,max) {

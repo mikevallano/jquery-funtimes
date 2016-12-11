@@ -1,3 +1,10 @@
+.lipsum-main {
+  background: #90b9bc;
+  border-radius: 5px;
+  padding-bottom: 70px;
+  margin-bottom: 20px;
+}
+
 #inputter {
   width: 250px;
   color: white;
@@ -52,14 +59,12 @@ li {
 
 .list-uno {
   li {
-    // border: 1px solid orange;
     width: 50%;
   }
 }
 
 .list-dos li {
   width: 60%;
-  // border: 1px solid grey;
 }
 
 .featured {
@@ -71,7 +76,7 @@ li {
 .prever {
   background: pink;
 }
-#rando {
-  width: 200px;
-  height: 200px;
+.btn.rando {
+  display: block;
+  margin-bottom: 10px;
 }
