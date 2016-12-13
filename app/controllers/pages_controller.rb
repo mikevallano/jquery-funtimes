@@ -11,6 +11,9 @@ class PagesController < ApplicationController
   def paver
   end
 
+  def filter
+  end
+
   def awaiting_confirmation
   end
 end

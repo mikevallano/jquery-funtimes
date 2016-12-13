@@ -89,6 +89,13 @@ $(document).ready(function(){
     return Math.floor(Math.random()*(max-min+1)+min);
   }
 
+  $(".filter-form-container input[type='date']").change(function() {
+    $(this).parent().find("input[type='radio']").prop("checked", true);
+  })
+  $(".filter-form-container label").click(function () {
+    $(this).parent().find("input[type='radio']").prop("checked", true);
+  })
+
 }); // end document ready
 
 

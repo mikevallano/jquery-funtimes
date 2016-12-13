@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get 'about', to: 'pages#about', as: :about
   get 'lipsum', to: 'pages#lipsum', as: :lipsum
   get 'paver', to: 'pages#paver', as: :paver
+  get 'filter', to: 'pages#filter', as: :filter
   get 'pages/awaiting_confirmation', as: :awaiting_confirmation
 
 end

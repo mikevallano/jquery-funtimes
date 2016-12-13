@@ -1,0 +1,32 @@
+<h1>Filter Page</h1>
+
+<div class="filter-form-container">
+  <%= form_tag filter_path, { class: "form-class", id: "ccm-report-filter-form", role: "form", method: :get } do %>
+    <%= field_set_tag 'Filter Options' do %>
+      <div class="filter-form-input">
+        <%= radio_button_tag(:report_filter, "Plan Only") %>
+        <%= label_tag(:care_plan_only, "Plan Only") %>
+      </div>
+      <div class="filter-form-input">
+        <%= radio_button_tag(:report_filter, "Plan with This Month's Updates", checked: true) %>
+        <%= label_tag(:care_plan_this_month_updates, "Plan with This Month's Updates") %>
+      </div>
+      <div class="filter-form-input">
+        <%= radio_button_tag(:report_filter, "Plan with Updates From:") %>
+        <%= label_tag(:care_plan_and_date_since, "Plan with Updates From:") %>
+        <%= date_field_tag(:cp_start_date, :start_date, value: Date.current.strftime('%Y-%m-%d'), class: "form-control report-date-field") %> to:
+        <%= date_field_tag(:cp_end_date, :end_date, value: Date.current.strftime('%Y-%m-%d'), class: "form-control report-date-field") %>
+      </div>
+      <div class="filter-form-input">
+        <%= field_set_tag nil, id: 'no-cp-just-updates' do %>
+          <%= radio_button_tag(:report_filter, "No Initial Plan. Just Updates From:") %>
+          <%= label_tag(:no_care_plan_and_date_range, "No Initial Plan. Just Updates From:") %>
+          <%= date_field_tag(:no_cp_start_date, :start_date, value: Date.current.strftime('%Y-%m-%d'), class: "form-control report-date-field") %> to:
+          <%= date_field_tag(:no_cp_end_date, :end_date, value: Date.current.strftime('%Y-%m-%d'), class: "form-control report-date-field") %>
+        <% end %>
+      </div>
+      <%= submit_tag "Print Preview", class: 'btn btn-success' %>
+    <% end %> <!-- field_set_tag -->
+  <% end %>
+</div>
+
