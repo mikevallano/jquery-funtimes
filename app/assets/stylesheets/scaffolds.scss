@@ -91,9 +91,20 @@ h1#critter-header {
   padding: 15px;
   margin-top: 10px;
   border-radius: 5px;
+  div h3 {
+    text-align: center;
+  }
   .inner-paver {
     padding: 15px;
     background: yellow;
+    border-radius: 5px;
+  }
+  .inner-paver2 {
+    background: pink;
+    border-radius: 5px;
+  }
+  .inner-paver3 {
+    background: #E8F4FF;
     border-radius: 5px;
   }
 }
