@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+  resources :screenings
   resources :trinkets do
     resources :comments
   end

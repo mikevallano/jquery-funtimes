@@ -1,0 +1,30 @@
+<%= form_for(@screening) do |f| %>
+  <% if @screening.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@screening.errors.count, "error") %> prohibited this screening from being saved:</h2>
+
+      <ul>
+      <% @screening.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_field :description %>
+  </div>
+  <div class="field">
+    <%= f.label :date_watched %><br>
+    <%= f.text_field :date_watched %>
+    <input type="text" class="hidden" id="alt_date_watched" name="screening[date_watched]"></input>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
