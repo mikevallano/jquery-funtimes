@@ -12,7 +12,7 @@
 
 <p>
   <strong>Date watched:</strong>
-  <%= @screening.date_watched %>
+  <%= @screening.date_watched.to_s(:month_display) %>
 </p>
 
 <%= link_to 'Edit', edit_screening_path(@screening) %> |
