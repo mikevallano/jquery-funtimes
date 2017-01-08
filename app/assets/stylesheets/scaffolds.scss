@@ -98,6 +98,10 @@ h1#critter-header {
     padding: 15px;
     background: yellow;
     border-radius: 5px;
+    button {
+      display: block;
+      margin: 0 auto;
+    }
   }
   .inner-paver2 {
     background: pink;
