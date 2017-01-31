@@ -11,10 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161217160609) do
+ActiveRecord::Schema.define(version: 20170131014513) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "collars", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "collarable_id"
+    t.string   "collarable_type"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "collars", ["collarable_type", "collarable_id"], name: "index_collars_on_collarable_type_and_collarable_id", using: :btree
 
   create_table "comments", force: :cascade do |t|
     t.integer  "trinket_id"

@@ -24,6 +24,16 @@
     <%= f.text_field :date_watched %>
     <input type="text" class="hidden" id="alt_date_watched" name="screening[date_watched]"></input>
   </div>
+  <br/>
+  <div class="field">
+    <% grouped_options = {
+      critters: Critter.all.map{|crit| [crit.name, crit.id]},
+      dogs: Dog.all.map{|dog| [dog.name, dog.id]}
+    } %>
+
+    <%= select_tag :description, grouped_options_for_select(grouped_options) %>
+  </div>
+  <br/>
   <div class="actions">
     <%= f.submit %>
   </div>

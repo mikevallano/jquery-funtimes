@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Collars</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Collarable</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @collars.each do |collar| %>
+      <tr>
+        <td><%= collar.name %></td>
+        <td><%= collar.collarable %></td>
+        <td><%= link_to 'Show', collar %></td>
+        <td><%= link_to 'Edit', edit_collar_path(collar) %></td>
+        <td><%= link_to 'Destroy', collar, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Collar', new_collar_path %>

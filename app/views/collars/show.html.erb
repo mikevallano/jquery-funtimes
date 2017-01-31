@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @collar.name %>
+</p>
+
+<p>
+  <strong>Collarable:</strong>
+  <%= @collar.collarable %>
+</p>
+
+<%= link_to 'Edit', edit_collar_path(@collar) %> |
+<%= link_to 'Back', collars_path %>
