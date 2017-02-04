@@ -1,6 +1,10 @@
 <h1>Editing Trinket</h1>
 
-<%= render 'form' %>
+<%= render 'edit_trinket_modal' %>
 
-<%= link_to 'Show', @trinket %> |
-<%= link_to 'Back', trinkets_path %>
+<%= link_to 'Edit Trinket', '', data: {toggle: 'modal', target: '#trinket-form-modal'} %>
+
+<div class="bottom-links">
+  <%= link_to 'Show', @trinket %> |
+  <%= link_to 'Back', trinkets_path %>
+</div>

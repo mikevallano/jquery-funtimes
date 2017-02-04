@@ -2,7 +2,7 @@
 
 <h1>Listing Trinkets</h1>
 
-<table>
+<table class='table'>
   <thead>
     <tr>
       <th>Name</th>
@@ -16,9 +16,9 @@
       <tr>
         <td><%= trinket.name %></td>
         <td><%= trinket.description %></td>
-        <td><%= link_to 'Show', trinket %></td>
-        <td><%= link_to 'Edit', edit_trinket_path(trinket) %></td>
-        <td><%= link_to 'Destroy', trinket, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', trinket, class: 'btn btn-default btn-xs' %></td>
+        <td><%= link_to 'Edit', edit_trinket_path(trinket), class: 'btn btn-default btn-xs' %></td>
+        <td><%= link_to 'Destroy', trinket, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-default btn-xs' %></td>
       </tr>
     <% end %>
   </tbody>
