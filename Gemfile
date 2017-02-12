@@ -27,6 +27,8 @@ gem 'coveralls', require: false
 gem 'rack-mini-profiler'
 gem 'stamp'
 gem 'nested_scaffold'
+gem 'carrierwave', '~> 1.0'
+gem 'fog-aws'
 
 gem 'web-console', group: :development
 

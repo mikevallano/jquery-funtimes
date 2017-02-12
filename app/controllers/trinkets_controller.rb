@@ -69,6 +69,6 @@ class TrinketsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def trinket_params
-      params.require(:trinket).permit(:name, :description)
+      params.require(:trinket).permit(:name, :description, :image)
     end
 end

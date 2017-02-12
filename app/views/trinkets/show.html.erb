@@ -10,6 +10,11 @@
   <%= @trinket.description %>
 </p>
 
+<p>
+  <strong>Image:</strong>
+  <%= image_tag @trinket.image_url %>
+</p>
+
 <%= link_to 'Edit', edit_trinket_path(@trinket) %> |
 <%= link_to 'Back', trinkets_path %>
 
