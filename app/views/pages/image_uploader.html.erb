@@ -1,0 +1,19 @@
+<h2>Upload an Image</h2>
+
+<%= form_tag upload_image_path, multipart: true do %>
+  <%= file_field_tag :image %>
+  <br/>
+  <%= submit_tag "Upload to S3", class: 'btn btn-success' %>
+<% end %><!-- form_tag -->
+
+<h2>Check if an image exists:</h2>
+<%= form_tag image_exists_path, method: :get do %>
+  <%= text_field_tag :image_name %>
+  <br/>
+  <%= submit_tag "Checkit", class: 'btn btn-success' %>
+<% end %>
+
+
+<p><%= "Exists: #{params[:exists]}" if params[:exists].present? %></p>
+
+<%= image_tag("#{ENV['S3_BASE_URL']}#{ENV['S3_BUCKET_NAME']}/#{params[:image_name]}") if params[:exists].present? && params[:image_name].present? %>
