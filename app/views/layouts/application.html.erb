@@ -23,6 +23,7 @@
         <li><%= link_to "Dogs", dogs_path, id: "dogs_nav_link" %></li>
         <li><%= link_to "Trinkets", trinkets_path, id: "trinkets_nav_link" %></li>
         <li><%= link_to "Screenings", screenings_path, id: "screenings_nav_link" %></li>
+        <li><%= link_to "Image Upload", image_uploader_path, id: "image_uploader_nav_link" %></li>
         <% if current_user %>
           <li><%= link_to "My Profile", user_path(current_user), id: "profile_nav_link" %></li>
           <li><%= link_to 'Sign Out', destroy_user_session_path, :method => :delete, id: "sign_out_nav_link" %></li>
