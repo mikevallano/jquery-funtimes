@@ -32,7 +32,6 @@ class PagesController < ApplicationController
   def upload_image
     if params[:image].present?
       uploader = IndependentUploader.new(params[:image].original_filename)
-      # binding.pry
       # File.open(params[:image]) do |file|
       File.open(params[:image].tempfile) do |file|
       # params[:image].read do |file|
@@ -41,7 +40,6 @@ class PagesController < ApplicationController
       # uploader.store!(params[:image].read)
       # retrieve = uploader.retrieve_from_store!(self.file_name)
       # retrieve = uploader.retrieve_from_store!(self)
-      # binding.pry
       # retrieve
     end
     redirect_to image_uploader_path, notice: "successful upload"

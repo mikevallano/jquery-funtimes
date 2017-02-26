@@ -24,7 +24,6 @@ class ScreeningsController < ApplicationController
   # POST /screenings
   # POST /screenings.json
   def create
-    binding.pry
     @screening = Screening.new(screening_params)
 
     respond_to do |format|

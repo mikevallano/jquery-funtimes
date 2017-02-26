@@ -5,6 +5,19 @@ class IndependentUploader < CarrierWave::Uploader::Base
     @uploaded_file_name = uploaded_file_name
   end
 
+  if ENV['S3_ACCESS_KEY_ID'] && ENV['S3_ACCESS_KEY_SECRET'] && !Rails.env.test?
+    storage :fog
+  else
+    storage :file
+    def cache_dir
+      "#{Rails.root}/spec/fixtures/uploads"
+    end
+
+    def store_dir
+      "#{Rails.root}/spec/fixtures/uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+    end
+  end
+
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
   # include CarrierWave::MiniMagick
@@ -13,13 +26,13 @@ class IndependentUploader < CarrierWave::Uploader::Base
 
   # Choose what kind of storage to use for this uploader:
   # storage :file
-  storage :fog
+  # storage :fog
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
-  def store_dir
+  # def store_dir
     # "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
-  end
+  # end
 
 
 
