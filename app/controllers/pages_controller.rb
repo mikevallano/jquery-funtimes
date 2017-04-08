@@ -17,6 +17,9 @@ class PagesController < ApplicationController
   def image_uploader
   end
 
+  def gimmie_crits
+  end
+
   def image_exists
     if params[:image_name]
       url = "#{ENV['S3_BASE_URL']}#{ENV['S3_BUCKET_NAME']}/#{params[:image_name]}"

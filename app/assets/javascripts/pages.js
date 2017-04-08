@@ -96,6 +96,22 @@ $(document).ready(function(){
     $(this).parent().find("input[type='radio']").prop("checked", true);
   })
 
+  $('#gimmie-crits-btn').click(function(e) {
+    $(this).addClass('hidden');
+    $('#crit-header').removeClass('hidden');
+    $.ajax({type: 'GET', url: '/critters.json',
+      success: function(critters) {
+        $.each(critters, function(i, critter) {
+          AddCritToList(critter);
+        }) //end each
+      } //end success
+    }) //end ajax call
+  }); // end click
+
+  function AddCritToList(critter){
+    $('#gimmie_crit_list').append("<li>"+critter.name+"</li>");
+  }
+
 }); // end document ready
 
 
