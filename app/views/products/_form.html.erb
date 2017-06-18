@@ -1,0 +1,36 @@
+<%= form_for(@product) do |f| %>
+  <% if @product.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+      <ul>
+      <% @product.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: 'form-control' %>
+  </div>
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.text_area :description, class: 'form-control'  %>
+  </div>
+  <div class="field">
+    <%= f.label :category_ids %><br>
+    <%#= collection_select(:product, :category_ids, Category.all), :id, :name, {include_blank: false}, {multiple: true}, class: 'selectpicker', data: {'live-search'=> 'true'} %>
+    <%#= f.select :category_ids, options_for_select(Category.all, :id, :name), {}, class: 'selectpicker' %>
+    <%#= f.collection_select(:category_ids, Category.all, :id, :name, {multiple: true}) %>
+    <!-- options_for_select(Category.all, :id, :name) -->
+    <%= f.select :category_ids, options_for_select(Category.all.collect {|c| [ c.name, c.id ] }), {}, class: 'selectpicker'  %>
+
+
+  </div>
+  <br/>
+  <div class="actions">
+    <%= f.submit nil, class: 'btn btn-success' %>
+  </div>
+<% end %>

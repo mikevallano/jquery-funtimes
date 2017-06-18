@@ -11,10 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170212161007) do
+ActiveRecord::Schema.define(version: 20170618195006) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "catetories", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "collars", force: :cascade do |t|
     t.string   "name"
@@ -61,6 +75,23 @@ ActiveRecord::Schema.define(version: 20170212161007) do
   add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
   add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
 
+  create_table "product_categories", force: :cascade do |t|
+    t.integer  "product_id"
+    t.integer  "category_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "product_categories", ["category_id"], name: "index_product_categories_on_category_id", using: :btree
+  add_index "product_categories", ["product_id"], name: "index_product_categories_on_product_id", using: :btree
+
+  create_table "products", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "screenings", force: :cascade do |t|
     t.string   "name"
     t.string   "description"
@@ -104,4 +135,6 @@ ActiveRecord::Schema.define(version: 20170212161007) do
   add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
 
   add_foreign_key "comments", "trinkets"
+  add_foreign_key "product_categories", "categories"
+  add_foreign_key "product_categories", "products"
 end

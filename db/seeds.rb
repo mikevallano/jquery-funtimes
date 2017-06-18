@@ -1,7 +1,9 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+50.times do
+  product = Product.create(name: FFaker::Product.product_name)
+  puts "product created: #{product.name}"
+
+  category = Category.create(name: FFaker::DizzleIpsum.word)
+  puts "category created: #{category.name}"
+end
+
+

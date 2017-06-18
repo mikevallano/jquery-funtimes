@@ -112,6 +112,8 @@ $(document).ready(function(){
     $('#gimmie_crit_list').append("<li>"+critter.name+"</li>");
   }
 
+  $('.selectpicker').selectpicker();
+
 }); // end document ready
 
 

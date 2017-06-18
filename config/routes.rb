@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+  resources :products
   resources :collars
   resources :screenings
   resources :trinkets do
