@@ -21,10 +21,13 @@
   </div>
   <div class="field">
     <%= f.label :category_ids %><br>
-    <%= collection_select(:product, :category_ids,
-                          Category.all,
-                          :id, :name, {include_blank: false}, {multiple: true, class: 'form-control'}) %>
+    <%#= collection_select(:product, :category_ids, Category.all), :id, :name, {include_blank: false}, {multiple: true}, class: 'selectpicker', data: {'live-search'=> 'true'} %>
+    <%#= f.select :category_ids, options_for_select(Category.all, :id, :name), {}, class: 'selectpicker' %>
     <%#= f.collection_select(:category_ids, Category.all, :id, :name, {multiple: true}) %>
+    <!-- options_for_select(Category.all, :id, :name) -->
+    <%= f.select :category_ids, options_for_select(Category.all.collect {|c| [ c.name, c.id ] }), {}, class: 'selectpicker'  %>
+
+
   </div>
   <br/>
   <div class="actions">
