@@ -25,7 +25,12 @@
     <%#= f.select :category_ids, options_for_select(Category.all, :id, :name), {}, class: 'selectpicker' %>
     <%#= f.collection_select(:category_ids, Category.all, :id, :name, {multiple: true}) %>
     <!-- options_for_select(Category.all, :id, :name) -->
-    <%= f.select :category_ids, options_for_select(Category.all.collect {|c| [ c.name, c.id ] }), {}, class: 'selectpicker'  %>
+    <%#= f.select :category_ids, options_for_select(Category.all.collect {|c| [ c.name, c.id ] }), {}, class: 'selectpicker'  %>
+    <select name="product[category_ids]" class="selectpicker" data-live-search="true" id='product_category_ids' multiple>
+      <%= Category.all.each do |category| %>
+        <option value="<%= category.id %>"><%= category.name %></option>
+      <% end %>
+    </select>
 
 
   </div>
