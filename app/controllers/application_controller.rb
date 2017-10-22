@@ -12,9 +12,10 @@ class ApplicationController < ActionController::Base
   end
 
   def check_session_and_cookies
-    cookies.encrypted[:tester] = { value: 'taco' }
+    cookies.encrypted[:encrypted_tester] = { value: 'encrypted_taco' }
     cookies[:taco] = { value: 'sauce' }
-    puts "session: #{session.values}"
-    puts "cookies: #{cookies}"
+    session[:session_taco] = 'session_sauce'
+    puts "session: #{session[:session_taco]}"
+    puts "cookies: #{cookies.encrypted[:tester]}"
   end
 end
