@@ -16,6 +16,7 @@ class ApplicationController < ActionController::Base
     cookies[:taco] = { value: 'sauce' }
     session[:session_taco] = 'session_sauce'
     puts "session: #{session[:session_taco]}"
-    puts "cookies: #{cookies.encrypted[:tester]}"
+    puts "encrypted cookies: #{cookies.encrypted[:tester]}"
+    puts "regular cookies: #{cookies[:taco]}"
   end
 end
