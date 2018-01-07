@@ -17,6 +17,8 @@ Rails.application.routes.draw do
   root 'pages#home'
   get 'about', to: 'pages#about', as: :about
   get 'lipsum', to: 'pages#lipsum', as: :lipsum
+  get 'scopes', to: 'pages#scopes', as: :scopes
+  get 'context', to: 'pages#context', as: :context
   get 'paver', to: 'pages#paver', as: :paver
   get 'filter', to: 'pages#filter', as: :filter
   get 'gimmie_crits', to: 'pages#gimmie_crits', as: :gimmie_crits
