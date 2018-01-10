@@ -17,8 +17,6 @@
 
   $(function(){
     $('#context-clicker').click(function(){
-      // $(this).toggleClass('btn-success')
-      // $('#context-div').toggleClass('hidden')
       _this = $(this)
       $('#context-div').slideToggle(300, function(){
         _this.toggleClass('btn-success')
