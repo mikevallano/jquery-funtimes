@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <span id='article-name'><%= @article.name %></span>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <span id='article-description'><%= @article.description %></span>
+</p>
+
+
+<button id='article-edit-btn'>Edit</button>
+<div id='article-form-holder' class='hidden'>
+  <%= form_for(@article, format: :json, remote: true) do |f| %>
+    <div class="field">
+      <%= f.label :name %><br>
+      <%= f.text_field :name %>
+    </div>
+    <div class="field">
+      <%= f.label :description %><br>
+      <%= f.text_area :description %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  <% end %>
+</div>
