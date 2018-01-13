@@ -4,7 +4,7 @@
 <%= render 'shared/loading_overlay' %>
 
 <h1 id="critter-header">Page of Critters</h1>
-<%= link_to 'New Critter', '#', class: 'btn btn-primary new-crit-btn' %>
+<%= link_to 'New Critter', '', data: {toggle: 'modal', target: '#crit-form-modal'}, class: 'btn btn-primary new-crit-btn' %>
 
 <table class="table table-striped" id="critter-table">
   <thead>

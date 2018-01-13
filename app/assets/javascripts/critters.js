@@ -1,4 +1,5 @@
 $(document).ready(function () {
+  var form = $('#crit-form-modal form')
   if (window.location.pathname == '/critters') {
     $.get('/critters.json', function(critters) {
       $.each(critters, function(i, critter) {
@@ -14,7 +15,7 @@ $(document).ready(function () {
       } else {
         addCritToList(crit);
         toggleCritForm();
-        resetForm();
+        setFormToCreate();
       }
   });
 
@@ -33,22 +34,22 @@ $(document).ready(function () {
     }
   } //end addCritToList
 
-  $(document).on('click', '.edit-crit-link', function() { // syntax for adding event listeners on items added to the dom
+  $(document).on('click', '.edit-crit-link', function(){
+    $('#crit-form-modal').addClass('edit-form')
     var tr = $(this).closest('tr');
     var critId = tr.prop("id");
     $.get('/critters/'+critId+'.json', function(critter) { // GET request to get entire critter object
-      editCritForm(critter, tr);
+      setFormToEdit(critter, tr);
     });
-  });
+  })
 
-  function editCritForm(critter, tr) {
-    toggleCritForm();
+  function setFormToEdit(critter, tr) {
     $('.modal-header h2').text('Editing ' + critter.name);
-    $('#crit-form-modal form #critter_name').val(critter.name);
-    $('#crit-form-modal form #critter_description').val(critter.description);
-    $('#crit-form-modal form').attr('action', critter.edit_url); // send to #edit instead of #create action
-    $('#crit-form-modal form').attr('method', 'patch'); // change method to patch
-    $('#crit-form-modal form input').first().attr('method', 'put'); // change method to put
+    form.find('#critter_name').val(critter.name);
+    form.find('#critter_description').val(critter.description);
+    form.attr('action', critter.edit_url); // send to #edit instead of #create action
+    form.attr('method', 'patch'); // change method to patch
+    form.find('input').first().attr('method', 'put'); // change method to put
     $('#crit-form-submit-btn').attr('value', 'Update Critter'); // change to "update" instead of 'create'
   }
 
@@ -57,26 +58,22 @@ $(document).ready(function () {
     tr.remove();
   });
 
-  function resetForm () {
-    $("#crit-form-modal form")[0].reset(); //resets form fields
+  function setFormToCreate () {
+    form.trigger('reset'); //reset form fields
     $('.modal-header h2').text("Create New Critter!");
-    $('#crit-form-submit-btn').attr('value', 'Create Critter');
-    $('#crit-form-modal form').attr('action', '/critters.json');
-    $('#crit-form-modal form').attr('method', 'post');
-    $('#crit-form-modal form input').first().attr('method', 'post');
+    form.attr('value', 'Create Critter');
+    form.attr('action', '/critters.json');
+    form.attr('method', 'post');
+    form.find('input').first().attr('method', 'post');
+    $('#crit-form-submit-btn').attr('value', 'Create Critter'); // change to "update" instead of 'create'
   }
 
   function toggleCritForm() {
     $('#crit-form-modal').modal('toggle');
   }
 
-  $(document).on('click', '.new-crit-btn', function() {
-    toggleCritForm()
-    resetForm();
-  });
-
   $("#crit-form-modal").on('hidden.bs.modal', function () {
-    resetForm();
+    setFormToCreate();
   })
 
 }); // end document ready
