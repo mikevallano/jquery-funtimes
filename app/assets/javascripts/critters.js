@@ -1,19 +1,17 @@
-$(document).ready(function () {
-  if (window.location.pathname == '/critters') {
-    // GET request to load the table with all critters
-    $.get('/critters.json', function(critters) {
-      $.each(critters, function(i, critter) {
-        addCritToList(critter);
-      });
-    });
-    $('#crit-form-modal').on('hidden.bs.modal', function () {
-      setFormToCreate();
-    })
-  } // end if critters page
-}); // end document ready
-
-$(document) // event listeners
-  //the second argument to on success defines which element triggered the ajax:success. differentiates between form submissions
+$(document)
+  .on('ready', function(){
+    if (window.location.pathname == '/critters') {
+      // GET request to load the table with all critters
+      $.get('/critters.json', function(critters) {
+        $.each(critters, function(i, critter) {
+          addCritToList(critter);
+        })
+      })
+    } // end if critters page
+  })
+  .on('hidden.bs.modal', '#crit-form-modal', function(){
+    setFormToCreate();
+  })
   .on('ajax:success', '#crit-form-modal form', function(e, crit) {
     $('#crit-form-modal').modal('hide');
     if (crit.errors) {
@@ -30,7 +28,8 @@ $(document) // event listeners
   })
   .on('click', '.delete-crit-link', function() {
     $(this).closest('tr').remove();
-  })
+  }
+) // end document events
 
 function addCritToList(critter) {
   var row = critRow(critter)
