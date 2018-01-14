@@ -6,7 +6,7 @@ $(document).ready(function () {
         addCritToList(critter);
       });
     });
-    $("#crit-form-modal").on('hidden.bs.modal', function () {
+    $('#crit-form-modal').on('hidden.bs.modal', function () {
       setFormToCreate();
     })
   } // end if critters page
@@ -17,13 +17,13 @@ $(document) // event listeners
   .on('ajax:success', '#crit-form-modal form', function(e, crit) {
     $('#crit-form-modal').modal('hide');
     if (crit.errors) {
-      $('#alert-msg').toggleClass('hidden').text("Error with the critter: " + crit.errors);
+      $('#alert-msg').toggleClass('hidden').text('Error with the critter: ' + crit.errors);
     } else {
       addCritToList(crit);
     }
   })
   .on('click', '.edit-crit-link', function(){
-    var critId = $(this).closest('tr').prop("id");
+    var critId = $(this).closest('tr').prop('id');
     $.get('/critters/'+critId+'.json', function(critter) { // GET request to get entire critter object
       setFormToEdit(critter);
     });
@@ -62,17 +62,17 @@ function setFormToEdit(critter) {
   form.attr('action', critter.edit_url); // send to #edit instead of #create action
   form.attr('method', 'patch'); // change method to patch
   form.find('input').first().attr('method', 'patch'); // change method to patch
-  $('#crit-form-submit-btn').attr('value', 'Update Critter'); // change to "update" instead of 'create'
+  $('#crit-form-submit-btn').attr('value', 'Update Critter'); // change to 'update' instead of 'create'
 }
 
 function setFormToCreate () {
   var form = $('#crit-form-modal form')
   form.trigger('reset'); //reset form fields
-  $('.modal-header h2').text("Create New Critter!");
+  $('.modal-header h2').text('Create New Critter!');
   form.attr('value', 'Create Critter');
   form.attr('action', '/critters.json');
   form.attr('method', 'post');
   form.find('input').first().attr('method', 'post');
-  $('#crit-form-submit-btn').attr('value', 'Create Critter'); // change to "update" instead of 'create'
+  $('#crit-form-submit-btn').attr('value', 'Create Critter'); // change to 'update' instead of 'create'
 }
 
