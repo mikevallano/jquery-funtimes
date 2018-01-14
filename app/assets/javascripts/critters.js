@@ -34,20 +34,25 @@ $(document) // event listeners
   })
 
 function addCritToList(critter) {
-  var critToAdd = "<tr id="+critter.id+">"+
-    "<td>"+critter.name+"</td>"+
-    "<td>"+critter.description+"</td>"+
-    "<td>"+critter.show+"</td>"+
-    "<td>"+critter.edit+"</td>"+
-    "<td>"+critter.destroy+"</td>"+
-    '</tr>';
+  var row = critRow(critter)
   var existingCrit = $('#crit-table-body tr#'+critter.id); // check if the critter is already in the table
-  if (existingCrit.length) { // if editing an existing crit, replace the tr
-    existingCrit.replaceWith(critToAdd);
+  if (existingCrit.length) {
+    existingCrit.replaceWith(row); // replace the row with updated data
   } else {
-    $('#crit-table-body').append(critToAdd);
+    $('#crit-table-body').append(row);
   }
-} //end addCritToList
+}
+
+function critRow(critter) {
+  // build the table row with object data
+  critAttrs = ['name', 'description', 'show', 'edit', 'destroy']
+  var critRow = '<tr id='+critter.id+'>'
+  for (var i=0; i < critAttrs.length; i++) {
+    critRow += '<td>'+critter[critAttrs[i]]+'</td>'
+  }
+  critRow += '</tr>'
+  return critRow
+}
 
 function setFormToEdit(critter) {
   var form = $('#crit-form-modal form')
