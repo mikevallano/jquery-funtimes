@@ -20,7 +20,6 @@ $(document) // event listeners
       $('#alert-msg').toggleClass('hidden').text("Error with the critter: " + crit.errors);
     } else {
       addCritToList(crit);
-      setFormToCreate();
     }
   })
   .on('click', '.edit-crit-link', function(){
@@ -56,12 +55,13 @@ function critRow(critter) {
 
 function setFormToEdit(critter) {
   var form = $('#crit-form-modal form')
+  form.trigger('reset'); //reset form fields
   $('.modal-header h2').text('Editing ' + critter.name);
   form.find('#critter_name').val(critter.name);
   form.find('#critter_description').val(critter.description);
   form.attr('action', critter.edit_url); // send to #edit instead of #create action
   form.attr('method', 'patch'); // change method to patch
-  form.find('input').first().attr('method', 'put'); // change method to put
+  form.find('input').first().attr('method', 'patch'); // change method to patch
   $('#crit-form-submit-btn').attr('value', 'Update Critter'); // change to "update" instead of 'create'
 }
 
