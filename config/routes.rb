@@ -28,6 +28,8 @@ Rails.application.routes.draw do
   get 'image_uploader', to: 'pages#image_uploader', as: :image_uploader
   post 'upload_image', to: 'pages#upload_image', as: :upload_image
   get 'image_exists', to: 'pages#image_exists', as: :image_exists
+  get 'modal_holder', to: 'pages#modal_holder', as: :modal_holder
+  get 'modal_innard', to: 'pages#modal_innard', as: :modal_innard
   get 'pages/awaiting_confirmation', as: :awaiting_confirmation
 
 end

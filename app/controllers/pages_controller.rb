@@ -50,4 +50,8 @@ class PagesController < ApplicationController
 
   def awaiting_confirmation
   end
+
+  def modal_innard
+    render layout: false
+  end
 end
